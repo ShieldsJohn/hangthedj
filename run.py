@@ -3,9 +3,18 @@ from musicians import musicians_list
 
 print("Welcome to Hang The DJ!")
 print("A Hangman game where you guess the name of the music act")
-print("Enter a letter to get started - but you only get six attempts!")
+print("Enter a letter to get started - you only get six attempts!\n")
+
+
+def retrieve_musician():
+    """
+    Retrieve a random musician from the list
+    """
+    return random.choice(musicians_list).upper()
+
 
 tries = 6
+
 
 def display_dj(tries):
     """
@@ -88,6 +97,7 @@ def display_dj(tries):
 
 
 def main():
+    print(retrieve_musician())
     print(display_dj(tries))
 
 
