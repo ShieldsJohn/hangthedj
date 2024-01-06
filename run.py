@@ -12,6 +12,18 @@ def musician_blanks():
     return "_" * len(musician)
 
 
+def letter_validation():
+    while True:
+        try:
+            letter_input = input("Please enter a letter: \n").upper()
+            if len(letter_input) == 1 and letter_input.isalpha():
+                break
+            else:
+                print("Please enter a single letter - try again!\n")
+        except ValueError:
+            print("Enter one letter.\n")
+    return letter_input
+
 tries = 6
 
 
@@ -99,6 +111,7 @@ def main():
     game_title()
     print(display_dj(tries))
     print(musician_blanks())
+    letter_validation()
 
 
 main()
