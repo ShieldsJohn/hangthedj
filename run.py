@@ -1,9 +1,6 @@
 import random
+from title import game_title
 from musicians import musicians_list
-
-print("Welcome to Hang The DJ!")
-print("A Hangman game where you guess the name of the music act.")
-print("Enter a letter to get started - you only get six attempts!\n")
 
 
 def musician_blanks():
@@ -99,6 +96,7 @@ def display_dj(tries):
 
 
 def main():
+    game_title()
     print(display_dj(tries))
     print(musician_blanks())
 
