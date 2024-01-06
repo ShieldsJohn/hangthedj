@@ -1,4 +1,4 @@
-musicians_list[
+musicians_list = [
     'Radiohead',
     'Nirvana',
     'Oasis',
