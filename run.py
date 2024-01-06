@@ -2,15 +2,17 @@ import random
 from musicians import musicians_list
 
 print("Welcome to Hang The DJ!")
-print("A Hangman game where you guess the name of the music act")
+print("A Hangman game where you guess the name of the music act.")
 print("Enter a letter to get started - you only get six attempts!\n")
 
 
-def retrieve_musician():
+def musician_blanks():
     """
-    Retrieve a random musician from the list
+    Retrieves random musician name from list and replaces letters with blanks
+    on the game screen
     """
-    return random.choice(musicians_list).upper()
+    musician = random.choice(musicians_list).upper()
+    return "_" * len(musician)
 
 
 tries = 6
@@ -97,8 +99,8 @@ def display_dj(tries):
 
 
 def main():
-    print(retrieve_musician())
     print(display_dj(tries))
+    print(musician_blanks())
 
 
 main()
