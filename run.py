@@ -33,17 +33,46 @@ def run_game():
     global tries
     list_musician = (musician_blanks())
     print(list_musician)
-    
+   
     while tries > 0:
-        print()
         letter = letter_validation()
+        guessed_letters = []
+        guessed_letters.append(letter)
         if letter in list_musician:
-            print("correct")
-        
+            print("Correct!")
+           
         else:
             tries -= 1
-            print("incorrect")      
-      
+            print("Incorrect!")
+
+        print(f"So far, you have guessed...", list(guessed_letters))
+
+        """
+        Add guessed letters to array
+        
+        """  
+        """
+        Commuicate if letter has already been guessed
+        """
+
+        """
+        Display correct letters replacing blanks
+        """
+        """
+        Count correct and incorrect tries
+        """
+
+        """
+        Print next stage of hangman if incorrect
+        """
+        """
+        End game if musician guessed or hangman stages complete
+        if hangaman complete, reveal the musician
+        """
+        """
+        Ask to play again
+        """
+
 
 def display_dj(tries):
     """
