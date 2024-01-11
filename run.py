@@ -1,6 +1,7 @@
 import random
 from title import game_title
 from musicians import musicians_list
+musician = " "
 
 
 def musician_blanks():
@@ -26,23 +27,23 @@ def letter_validation():
 
 
 tries = 6
-guessed_letters = []
-guessed = False
-display = " "
-musician = musician_blanks()
-list_musician = list(musician)
-letter_input = letter_validation()
 
 
-def run_game(musician):
-    for letter_input in list_musician:
-        if letter_input in list_musician:
-            guessed = True
-            print("Well done - correct guess!")
-            break
+def run_game():
+    global tries
+    list_musician = (musician_blanks())
+    print(list_musician)
+    
+    while tries > 0:
+        print()
+        letter = letter_validation()
+        if letter in list_musician:
+            print("correct")
+        
         else:
-            print("This letter is not in the word - please try again!")
-
+            tries -= 1
+            print("incorrect")      
+      
 
 def display_dj(tries):
     """
@@ -127,9 +128,7 @@ def display_dj(tries):
 def main():
     game_title()
     print(display_dj(tries))
-    print(musician_blanks())
-    letter_validation()
-    run_game(musician)
+    run_game()
 
 
 main()
