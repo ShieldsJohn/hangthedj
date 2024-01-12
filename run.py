@@ -33,18 +33,18 @@ def run_game():
     global tries
     list_musician = (musician_blanks())
     print(list_musician)
+    guessed_letters = [] 
    
     while tries > 0:
-        letter = letter_validation()
-        guessed_letters = []
-        guessed_letters.append(letter)
+        letter = letter_validation()   
         if letter in list_musician:
             print("Correct!")
            
         else:
             tries -= 1
-            print("Incorrect!")
+            print(f"Incorrect - {tries} tries remaining!")
 
+        guessed_letters.append(letter)
         print(f"So far, you have guessed...", list(guessed_letters))
 
         """
