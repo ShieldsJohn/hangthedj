@@ -31,9 +31,6 @@ def letter_validation():
     return letter_input
 
 
-tries = 6
-
-
 def run_game():
     """
     The main function for game processes
@@ -66,6 +63,7 @@ def run_game():
         print(display_dj(tries))
         guessed_letters.append(letter)
         print(f"So far, you have guessed: {', '.join(guessed_letters)}")
+        print(" ")
 
         if list_musician == musician_reveal:
             break
@@ -73,9 +71,11 @@ def run_game():
     if tries == 0:
         print("YOU HANGED THE DJ!")
         print(f"The musician is - {musician_reveal}")
+        print(" ")
     else:
         print("YOU SAVED THE DJ!")
         print(f"You correctly guessed - {musician_reveal}")
+        print(" ")
 
 
 def update_display(current_display, word, letter):
@@ -89,6 +89,22 @@ def update_display(current_display, word, letter):
         else:
             new_display += current_display[i]
     return new_display
+
+
+def play_again():
+    while True:
+        try:
+            print("Play again? - Y/N")
+            start_again = input("Y or N: ").upper()
+            if start_again == "Y":
+                return True
+                break
+            elif start_again == "N":
+                print("Thanks for playing!")
+                return False
+                break
+        except ValueError():
+            print("Please enter 'Y' or 'N'.")
     
     """
     Ask to play again
@@ -176,9 +192,15 @@ def display_dj(tries):
 
 
 def main():
-    game_title()
-    print(display_dj(tries))
-    run_game()
+    while True:
+        game_title()
+        global tries
+        tries = 6
+        print(display_dj(tries))
+        run_game()
+
+        if not play_again():
+            break
 
 
 main()
