@@ -14,6 +14,10 @@ def musician_blanks():
 
 
 def letter_validation():
+    """
+    Validates if a single letter has been entered
+    if not, user is asked to do so.
+    """
     while True:
         try:
             letter_input = input("Please enter a letter: ").upper()
@@ -31,41 +35,61 @@ tries = 6
 
 
 def run_game():
+    """
+    The main function for game processes
+    """
     global tries
     musician_reveal = musician_blanks()
     list_musician = "-" * len(musician_reveal)
+    guessed_letters = []
     print(list_musician)
-    guessed_letters = [] 
    
     while tries > 0:
+        """
+        While loop executes below functions while
+        tries is greater than 0
+        """
         letter = letter_validation()
-        if letter in list_musician:
-            print(f"Correct - {tries} tries remaining!")
-        elif letter in guessed_letters:
+
+        if letter in guessed_letters:
             print(f"You have already guessed {letter}, please try again.")
+        elif letter in musician_reveal:
+            print(f"Correct - {tries} tries remaining!")
+            list_musician = update_display(
+                list_musician, musician_reveal, letter)
+            print(list_musician)
         else:
             tries -= 1
             print(f"Incorrect - {tries} tries remaining!")
-        
+            print(list_musician)
+
         print(display_dj(tries))
-        print(list_musician)
         guessed_letters.append(letter)
         print(f"So far, you have guessed: {', '.join(guessed_letters)}")
 
+        if list_musician == musician_reveal:
+            break
+
     if tries == 0:
-        print("YOU'VE HANGED THE DJ!")
+        print("YOU HANGED THE DJ!")
         print(f"The musician is - {musician_reveal}")
     else:
         print("YOU SAVED THE DJ!")
         print(f"You correctly guessed - {musician_reveal}")
 
+
+def update_display(current_display, word, letter):
     """
-    Display correct letters replacing blanks
+    Update the display based on the guessed letter
     """
-    """
-    End game if musician guessed or hangman stages complete
-    if hangaman complete, reveal the musician
-    """
+    new_display = ""
+    for i in range(len(word)):
+        if word[i] == letter:
+            new_display += letter
+        else:
+            new_display += current_display[i]
+    return new_display
+    
     """
     Ask to play again
     """
