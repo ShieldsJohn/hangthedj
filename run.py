@@ -1,7 +1,7 @@
 import random
 from title import game_title
 from musicians import musicians_list
-musician = " "
+musician = ""
 
 
 def musician_blanks():
@@ -32,7 +32,8 @@ tries = 6
 
 def run_game():
     global tries
-    list_musician = (musician_blanks())
+    musician_reveal = musician_blanks()
+    list_musician = "-" * len(musician_reveal)
     print(list_musician)
     guessed_letters = [] 
    
@@ -51,16 +52,23 @@ def run_game():
         guessed_letters.append(letter)
         print(f"So far, you have guessed: {', '.join(guessed_letters)}")
 
-        """
-        Display correct letters replacing blanks
-        """
-        """
-        End game if musician guessed or hangman stages complete
-        if hangaman complete, reveal the musician
-        """
-        """
-        Ask to play again
-        """
+    if tries == 0:
+        print("YOU'VE HANGED THE DJ!")
+        print(f"The musician is - {musician_reveal}")
+    else:
+        print("YOU SAVED THE DJ!")
+        print(f"You correctly guessed - {musician_reveal}")
+
+    """
+    Display correct letters replacing blanks
+    """
+    """
+    End game if musician guessed or hangman stages complete
+    if hangaman complete, reveal the musician
+    """
+    """
+    Ask to play again
+    """
 
 
 def display_dj(tries):
