@@ -39,23 +39,20 @@ def run_game():
         letter = letter_validation()
 
         if letter in list_musician:
-            print("Correct!")
+            print(f"Correct - {tries} tries remaining!")
         elif letter in guessed_letters:
             print(f"You have already guessed {letter}, please try again.")
         else:
             tries -= 1
             print(f"Incorrect - {tries} tries remaining!")
-
+        
+        print(display_dj(tries))
         guessed_letters.append(letter)
         print(f"So far, you have guessed: {', '.join(guessed_letters)}")
 
         """
         Display correct letters replacing blanks
         """
-        """
-        Count correct and incorrect tries
-        """
-
         """
         Print next stage of hangman if incorrect
         """
