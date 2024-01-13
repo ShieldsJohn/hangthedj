@@ -16,7 +16,8 @@ def musician_blanks():
 def letter_validation():
     while True:
         try:
-            letter_input = input("Please enter a letter: \n").upper()
+            letter_input = input("Please enter a letter: ").upper()
+            print("\n" * 3)
             if len(letter_input) == 1 and letter_input.isalpha():
                 return letter_input.upper()
             else:
@@ -37,7 +38,6 @@ def run_game():
    
     while tries > 0:
         letter = letter_validation()
-
         if letter in list_musician:
             print(f"Correct - {tries} tries remaining!")
         elif letter in guessed_letters:
@@ -47,14 +47,12 @@ def run_game():
             print(f"Incorrect - {tries} tries remaining!")
         
         print(display_dj(tries))
+        print(list_musician)
         guessed_letters.append(letter)
         print(f"So far, you have guessed: {', '.join(guessed_letters)}")
 
         """
         Display correct letters replacing blanks
-        """
-        """
-        Print next stage of hangman if incorrect
         """
         """
         End game if musician guessed or hangman stages complete
