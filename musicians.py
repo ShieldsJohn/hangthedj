@@ -1,3 +1,9 @@
+"""
+This file contains a list of musicians
+which the run.py file will import
+one at random for each turn of the game.
+"""
+
 musicians_list = [
     'Radiohead',
     'Nirvana',
