@@ -6,8 +6,7 @@ musician = ""
 
 def musician_blanks():
     """
-    Retrieves random musician name from list and replaces letters with blanks
-    on the game screen
+    Retrieves random musician name from 'musicians' module
     """
     musician = random.choice(musicians_list).upper()
     return musician
@@ -94,7 +93,7 @@ def update_display(current_display, word, letter):
 def play_again():
     while True:
         try:
-            print("Play again? - Y/N")
+            print("Play again?")
             start_again = input("Y or N: ").upper()
             if start_again == "Y":
                 return True
