@@ -53,11 +53,11 @@ https://hang-the-dj-app-1de78d19a83b.herokuapp.com/
 
 - Adding spaces or special characters to add further complexity to the game.
  - A timed element, where the player only has so many seconds to guess each letter. 
- - Refresh the game periodically to focus on a particular genre or decade.
+ - Refresh the game periodically to focus on a particular genre or decade of music.
 
  ## Planning
 
-The aim was to produce a hangman game that's fun, intuiitive and provides varying levels of difficulty.
+The aim was to produce a hangman game that's fun, intuitive and provides varying levels of difficulty.  The game can be played by anyone from reading-age onwards, with a passing knowledge of music.
 
 -  Being a music fan, I compiled a list of one-word musicians from across the decades and spanning most popular generes.  Being one-word names, I wanted to have a range of simple names and longer, more complex and unusual names.  The list is created on a separate musicians.py file, which is imported to the main run.py file.
 - To generate a random word from the list, Python's random module is imported and used in in the musican_blank function.
